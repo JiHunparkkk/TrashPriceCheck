@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Thymeleaf Example</title>
+</head>
+<body>
+<h1>Welcome to Thymeleaf!</h1>
+
+<div th:if="${name}">
+    <p th:text="'Hello, ' + ${name} + '!'"></p>
+</div>
+
+<ul>
+    <li th:each="item : ${items}" th:text="${item}"></li>
+</ul>
+</body>
+</html>
