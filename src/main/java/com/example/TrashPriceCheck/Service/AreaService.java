@@ -6,7 +6,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
@@ -20,4 +22,20 @@ public class AreaService {
                 .map(AreaListResponseDto::new)
                 .collect(Collectors.toList());
     }
+
+    @Transactional(readOnly = true)
+    public List<Map<String, Object>> searchAvgOrigin() {
+        List<Object[]> resultList = areaRepository.findByAvgOrigin();
+
+        return resultList.stream()
+                .map(result -> {
+                    Map<String, Object> resultMap = new HashMap<>();
+                    resultMap.put("adr_do", result[0]);
+                    resultMap.put("avg", result[1]);
+                    return resultMap;
+                })
+                .collect(Collectors.toList());
+    }
+
+
 }

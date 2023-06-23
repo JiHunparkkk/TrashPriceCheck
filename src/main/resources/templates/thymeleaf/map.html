@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Canvas</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <style>
+        body {
+            text-align: center;
+        }
+        canvas {
+            border: 2px solid #cacaca;
+            border-radius: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+<div id="cnvs" style="width: 575px; height: 700px; position: relative;">
+    <canvas id="myCanvas" style="background-color: #000;"></canvas>
+    <canvas id="hoberCanvas"></canvas>
+</div>
+
+<script type="text/javascript" th:src="@{/js/kor.84a3553c.js}"></script>
+
+</body>
+</html>

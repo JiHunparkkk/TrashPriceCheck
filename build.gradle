@@ -26,6 +26,8 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.boot:spring-boot-devtools'
+	implementation 'org.webjars:leaflet:1.7.1'
+
 
 	//스프링 시큐리티
 	implementation 'org.springframework.boot:spring-boot-starter-security'
@@ -50,6 +52,8 @@ dependencies {
 
 	//Hibernate5JakartaModule
 	implementation 'com.fasterxml.jackson.datatype:jackson-datatype-hibernate5-jakarta'
+
+
 }
 
 tasks.named('test') {
