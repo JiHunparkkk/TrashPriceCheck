@@ -25,4 +25,9 @@ public class AreaController {
     public List<Map<String,Object>> search(){
         return areaService.searchAvgOrigin();
     }
+
+    @GetMapping("/areaFood")
+    public List<Map<String,Object>> searchFood(){
+        return areaService.searchAvgFood();
+    }
 }

@@ -25,8 +25,25 @@ public class AreaRepository {
         String query = "SELECT t.area.adr_do, AVG(t.price_10L) " +
                 "FROM Trash t "+
                 "WHERE t.trashUsage.trashUsage_type='생활쓰레기' AND t.trash_user='가정용' "+
+                "AND t.trash_type = '규격봉투' " +
                 "GROUP BY t.area.adr_do";
         return em.createQuery(query, Object[].class)
                 .getResultList();
     }
+
+    public List<Object[]> findByAvgFood() {
+        String query = "SELECT t.area.adr_do, " +
+                "AVG(CASE WHEN t.trashUsage.trashUsage_type = '음식물쓰레기' THEN t.price_3L END) " +
+                "FROM Trash t " +
+                "WHERE t.trash_user = '가정용' " +
+                "AND t.trash_type = '규격봉투' " +
+                "GROUP BY t.area.adr_do";
+
+        return em.createQuery(query, Object[].class)
+                .getResultList();
+    }
+
+
+
+
 }

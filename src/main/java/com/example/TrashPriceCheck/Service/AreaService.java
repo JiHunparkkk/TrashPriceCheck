@@ -37,5 +37,18 @@ public class AreaService {
                 .collect(Collectors.toList());
     }
 
+    @Transactional(readOnly = true)
+    public List<Map<String, Object>> searchAvgFood() {
+        List<Object[]> resultList = areaRepository.findByAvgFood();
+
+        return resultList.stream()
+                .map(result -> {
+                    Map<String, Object> resultMap = new HashMap<>();
+                    resultMap.put("adr_do", result[0]);
+                    resultMap.put("avg", result[1]);
+                    return resultMap;
+                })
+                .collect(Collectors.toList());
+    }
 
 }
