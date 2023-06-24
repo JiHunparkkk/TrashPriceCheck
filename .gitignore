@@ -1,10 +1,10 @@
+scr/main/resources
 HELP.md
 .gradle
 build/
 !gradle/wrapper/gradle-wrapper.jar
 !**/src/main/**/build/
 !**/src/test/**/build/
-scr/main/resources/application.yml
 
 ### STS ###
 .apt_generated
