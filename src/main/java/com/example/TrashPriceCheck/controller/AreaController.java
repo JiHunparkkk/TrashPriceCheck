@@ -30,4 +30,5 @@ public class AreaController {
     public List<Map<String,Object>> searchFood(){
         return areaService.searchAvgFood();
     }
+
 }

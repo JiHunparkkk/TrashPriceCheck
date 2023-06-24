@@ -22,7 +22,7 @@ public class AreaRepository {
     }
 
     public List<Object[]> findByAvgOrigin() {
-        String query = "SELECT t.area.adr_do, AVG(t.price_10L) " +
+        String query = "SELECT t.area.adr_do, AVG(CASE WHEN t.price_20L!=0 THEN t.price_20L END) " +
                 "FROM Trash t "+
                 "WHERE t.trashUsage.trashUsage_type='생활쓰레기' AND t.trash_user='가정용' "+
                 "AND t.trash_type = '규격봉투' " +
@@ -33,7 +33,7 @@ public class AreaRepository {
 
     public List<Object[]> findByAvgFood() {
         String query = "SELECT t.area.adr_do, " +
-                "AVG(CASE WHEN t.trashUsage.trashUsage_type = '음식물쓰레기' THEN t.price_3L END) " +
+                "AVG(CASE WHEN t.trashUsage.trashUsage_type = '음식물쓰레기' THEN (CASE WHEN t.price_3L != 0 THEN t.price_3L END) END) " +
                 "FROM Trash t " +
                 "WHERE t.trash_user = '가정용' " +
                 "AND t.trash_type = '규격봉투' " +
@@ -42,6 +42,7 @@ public class AreaRepository {
         return em.createQuery(query, Object[].class)
                 .getResultList();
     }
+
 
 
 

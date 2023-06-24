@@ -50,5 +50,4 @@ public class AreaService {
                 })
                 .collect(Collectors.toList());
     }
-
 }
